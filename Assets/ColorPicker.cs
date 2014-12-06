@@ -6,12 +6,13 @@ public class ColorPicker : MonoBehaviour {
 	private MouseOrbit orb;
 	public bool pickingColor = false;
 	private GameObject cubePicker;
+	private MeshManipulator colorPickerManipulator;
 
 
 	void Start () {
 		orb = ColorSpawner.main.orb;
 		cubePicker = (GameObject)Instantiate(ColorSpawner.main.spawnObj, new Vector3(-30f, -30f, -30f), Quaternion.identity);
-		cubePicker.transform.renderer.material.color = Color.black;
+		colorPickerManipulator = cubePicker.GetComponent<MeshManipulator>();
 	}
 	
 	void Update () {
@@ -26,7 +27,7 @@ public class ColorPicker : MonoBehaviour {
 			Debug.Log("???");
 			float speed = 10f * Time.deltaTime;
 
-			Color c = cubePicker.renderer.material.color;
+			Color c = Color.black;
 
 			if (Input.GetKey(KeyCode.Space)){
 				c = new Color(Random.Range(0, 1f),
@@ -34,10 +35,10 @@ public class ColorPicker : MonoBehaviour {
 				              Random.Range(0, 1f));
 			}
 
-			cubePicker.renderer.material.color = c;
+			colorPickerManipulator.SetColor(c);
 
 			if (Input.GetKeyDown(KeyCode.L)){
-				LocateColor(cubePicker.renderer.material.color);
+				LocateColor(colorPickerManipulator.GetColor());
 			}
 		}
 	}
@@ -46,6 +47,6 @@ public class ColorPicker : MonoBehaviour {
 		GameObject closest = ColorSpawner.main.tree.nearest(c.GetKey()) as GameObject;
 		cubePicker.GetComponent<CubePositionFader>().target = closest.transform.position + Camera.main.transform.forward * 2f;
 		orb.target = closest.transform;
-		orb.distance = 5f;
+		orb.distance = 10f;
 	}
 }

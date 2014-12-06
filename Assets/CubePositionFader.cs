@@ -16,4 +16,8 @@ public class CubePositionFader : MonoBehaviour {
 	void Update () {
 		transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime);
 	}
+
+	void OnCollisionEnter(){
+		Destroy(this);
+	}
 }

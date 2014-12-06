@@ -8,7 +8,7 @@ var yMinLimit = -20;
 var yMaxLimit = 80;
 
 var velocity = Vector3.zero;
-var smoothTime = .1f;
+var smoothTime = .01f;
 
 private var x = 0.0;
 private var y = 0.0;
@@ -36,9 +36,9 @@ function LateUpdate () {
         var position = rotation * Vector3(0.0, 0.0, -distance) + target.position;
         
         transform.rotation = rotation;
-        transform.position = Vector3.SmoothDamp(transform.position, position, velocity, smoothTime, Mathf.Infinity, Time.fixedDeltaTime);
+        transform.position = Vector3.SmoothDamp(transform.position, position, velocity, smoothTime);
     }
-    distance -= Input.GetAxis("Vertical") * 5 * Time.fixedDeltaTime;
+    distance -= Input.GetAxis("Vertical") * 10 * Time.fixedDeltaTime;
 }
 
 static function ClampAngle (angle : float, min : float, max : float) {
