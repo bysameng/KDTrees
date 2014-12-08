@@ -8,7 +8,7 @@ var yMinLimit = -20;
 var yMaxLimit = 80;
 
 var velocity = Vector3.zero;
-var smoothTime = .01f;
+var smoothTime = .001f;
 
 private var x = 0.0;
 private var y = 0.0;
@@ -35,7 +35,9 @@ function LateUpdate () {
         var rotation = Quaternion.Euler(y, x, 0);
         var position = rotation * Vector3(0.0, 0.0, -distance) + target.position;
         
-        transform.rotation = rotation;
+//        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10 * Time.deltaTime);
+//		transform.LookAt(target.transform.position);
+transform.rotation = rotation;
         transform.position = Vector3.SmoothDamp(transform.position, position, velocity, smoothTime);
     }
     distance -= Input.GetAxis("Vertical") * 10 * Time.fixedDeltaTime;
