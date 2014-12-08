@@ -30,6 +30,5 @@ Space - Set color picker to random color.
 
 L - Locate picked color.
 
-###Fun
-T
-Y
+###Throwing Cubes
+Press T to throw cubes. Hold Y when pressing T to throw larger cubes.
