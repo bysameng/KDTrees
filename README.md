@@ -5,6 +5,11 @@ KDTrees
 For 335. A simple application of KD Trees for fast nearest neighbor searches.
 Visualizes elements in a 3D space. Sorted in the tree based on RGB values.
 
+
+###Installation
+Grab the binaries in the binaries folder for your OS. Unzip the file.
+Run the application. Controls are also shown upon startup.
+
 ###Controls
 1 - Spawn 5x5x5 RGB cube.
 2 - Spawn 10x10x10 random cubes.
