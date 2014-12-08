@@ -8,6 +8,7 @@ Visualizes elements in a 3D space. Sorted in the tree based on RGB values.
 
 ###Installation
 https://github.com/ssameng/KDTrees/releases
+
 Grab the binaries in the link above for your OS. Unzip the file.
 Run the application. Controls are also shown upon startup.
 
