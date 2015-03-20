@@ -4,9 +4,9 @@ using System.Collections;
 public class MeshManipulator : MonoBehaviour {
 
 	public Mesh mesh;
-	private Vector3[] originalVerts;
-	private Vector3[] currentVerts;
-	private Color[] colors;
+	public Vector3[] originalVerts{get; private set;}
+	public Vector3[] currentVerts{get; private set;}
+	public Color[] colors{get; private set;}
 
 	void Awake(){
 		mesh = gameObject.GetComponent<MeshFilter>().mesh;

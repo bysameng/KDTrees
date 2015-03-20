@@ -10,9 +10,11 @@ public class ColorPicker : MonoBehaviour {
 
 
 	void Start () {
+		Screen.lockCursor = false;
+		Cursor.visible = false;
 		orb = ColorSpawner.main.orb;
 		cubePicker = (GameObject)Instantiate(ColorSpawner.main.spawnObj, new Vector3(-30f, -30f, -30f), Quaternion.identity);
-		cubePicker.collider.enabled = false;
+		cubePicker.GetComponent<Collider>().enabled = false;
 		colorPickerManipulator = cubePicker.GetComponent<MeshManipulator>();
 		colorPickerManipulator.SetColor(Color.black);
 	}

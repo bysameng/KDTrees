@@ -12,7 +12,7 @@ public class CubeThrower : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.T)){
 			GameObject proj = (GameObject)Instantiate(ColorSpawner.main.spawnObj, transform.position, Quaternion.Euler(Random.insideUnitSphere));
-			proj.rigidbody.AddForce(transform.forward * 1000f);
+			proj.GetComponent<Rigidbody>().AddForce(transform.forward * 1000f);
 			proj.GetComponent<MeshManipulator>().SetColor(new Color(Random.value, Random.value, Random.value));
 			proj.GetComponent<CubePositionFader>().enabled = false;
 			if (Input.GetKey(KeyCode.Y)){
