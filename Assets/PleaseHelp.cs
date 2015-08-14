@@ -13,11 +13,11 @@ public class PleaseHelp : MonoBehaviour {
 	}
 
 	void Start(){
-		Invoke("ChangeText", 1f);
+		Invoke("ChangeText", 5f);
 	}
 
 	void ChangeText(){
-		text.text = lines[Random.Range(0, lines.Length-1)];
-		Invoke("ChangeText", 1f);
+		text.text = Random.value > .95f ? lines[Random.Range(0, lines.Length-1)] : "";
+		Invoke("ChangeText", 5f);
 	}
 }

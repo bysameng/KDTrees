@@ -60,6 +60,7 @@ public class PlaneWaveGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Application.targetFrameRate = 60;
+		Cursor.visible = false;
 		maincamera = Camera.main;
 
 		speedDamper = new FloatSmoothDamper(Random.Range(.01f, .2f), Random.Range(.01f, 1f), smoothTime * 2, true);
